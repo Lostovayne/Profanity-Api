@@ -1,0 +1,15 @@
+{
+  "name": "profanity-api",
+  "version": "1.0.0",
+  "author": "",
+  "main": "index.js",
+  "description": "",
+  "keywords": [],
+  "license": "ISC",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "csv-parser": "^3.1.0"
+  }
+}
