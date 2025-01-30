@@ -23,9 +23,20 @@ async function parseCsv(filePath: string): Promise<Row[]> {
 	});
 }
 
+const STEP = 30;
+
 const seed = async () => {
 	const data = await parseCsv("training_dataset.csv");
-	console.log(data);
+
+	for (let i = 0; i < data.length; i += STEP) {
+		const chunk = data.slice(i, i + STEP);
+		const formatted = chunk.map((row, index) => ({
+			data: row.text,
+			id: i + index,
+			metadata: { text: row.text },
+		}));
+		console.log(formatted);
+	}
 };
 
 seed();
