@@ -101,15 +101,32 @@ app.post("/", async (c: Context) => {
       }),
     ]);
 
+    
     // Return the result to the user
     if (flaggedFor.size > 0) {
       const sordted = Array.from(flaggedFor).sort((a, b) =>
         b.score > a.score ? -1 : 1
       )[0];
-      return c.json({ isProfanity: true, score: sordted.score });
+
+      return c.json({
+        isProfanity: true,
+        score: sordted.score,
+        flaggedFor: sordted.text,
+      });
+    } else {
+
+      const mostProfaneChunk = vectorRes.sort((a, b) =>
+        b.score > a.score ? -1 : 1
+      )[0];
+
+      return c.json({ isProfanity: false, score: mostProfaneChunk.score });
     }
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+    return c.json({ error: "Internal Server Error" }, { status: 500 });
+  }
 });
+
 
 function splitTextIntoWords(text: string) {
   return text.split(/\s+/);
@@ -121,3 +138,5 @@ async function splitTextIntoSemantics(text: string) {
   const chunks = documents.map((chunk) => chunk.pageContent); // returns removing the additional information from the documents such as metadata, etc.
   return chunks;
 }
+
+export default app;
