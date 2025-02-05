@@ -1,0 +1,6 @@
+name = "profanity-api"
+compatibility_date = "2025-02-05"
+
+[vars]
+VECTOR_URL="https://helpful-maggot-47972-us1-vector.upstash.io"
+VECTOR_TOKEN="ABgFMGhlbHBmdWwtbWFnZ290LTQ3OTcyLXVzMWFkbWluWkRBMU16QTFNbU10Tnpjd05pMDBaakUwTFdFNFltWXRabVEyWXpFeVlqWTFNR05q"
