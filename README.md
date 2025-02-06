@@ -60,8 +60,8 @@ bun wrangler dev index.ts
 ## API Endpoints
 | Endpoint       | Method | Description                     |
 |----------------|--------|---------------------------------|
-| `/check`       | POST   | Check for profanity in text     |
-| `/filter`      | POST   | Filter profanity from text      |
+| `/`       | POST   | Check for profanity in text     |
+| `/`      | POST   | Filter profanity from text      |
 
 ### Request Parameters
 For both endpoints, the request body should be a JSON object containing the following parameter:
